@@ -5,6 +5,7 @@ import com.embarkx.jobapp.service.JobService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -31,6 +32,19 @@ public class JobServiceImpl implements JobService {
                 return job;
         }
         return null;
+    }
+
+    @Override
+    public boolean deleteJobById(Long id) {
+        Iterator<Job> iterator = jobs.iterator();
+        while (iterator.hasNext()){
+            Job job = iterator.next();
+            if (id.equals(job.getId())){
+                iterator.remove();
+                return true;
+            }
+        }
+        return false;
     }
 
 
