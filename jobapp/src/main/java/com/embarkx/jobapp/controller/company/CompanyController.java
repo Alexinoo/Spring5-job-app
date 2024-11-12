@@ -2,9 +2,9 @@ package com.embarkx.jobapp.controller.company;
 
 import com.embarkx.jobapp.model.company.Company;
 import com.embarkx.jobapp.service.company.CompanyService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,7 +19,17 @@ public class CompanyController {
     }
 
     @GetMapping
-    public List<Company> getAllCompanies(){
-        return companyService.getAllCompanies();
+    public ResponseEntity<List<Company>> getAllCompanies(){
+        return ResponseEntity.ok(companyService.getAllCompanies());
+    }
+
+    @PutMapping("/{companyId}")
+    public ResponseEntity<String> updateCompanyById(@RequestBody Company updatedCompany ,
+                                                    @PathVariable Long companyId){
+        boolean isCompanyUpdated = companyService.updateCompany(updatedCompany,companyId);
+        if (isCompanyUpdated)
+            return new ResponseEntity<>("Company updated Successfully",HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
     }
 }
