@@ -25,6 +25,16 @@ public class CompanyServiceImpl implements CompanyService {
     public void createCompany(Company newCompany) {
         companyRepository.save(newCompany);
     }
+
+    @Override
+    public boolean deleteCompany(Long id) {
+        if (companyRepository.existsById(id)){
+            companyRepository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public boolean updateCompany(Company updatedCompany, Long id) {
         Optional<Company> companyOptional = companyRepository.findById(id);
