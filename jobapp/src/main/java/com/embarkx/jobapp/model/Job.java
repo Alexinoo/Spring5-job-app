@@ -1,12 +1,25 @@
 package com.embarkx.jobapp.model;
 
+import jakarta.persistence.*;
+
+@Entity
+//@Table(name = "job_table") ** Specify other name other than the default one which is 'job' **
 public class Job {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String description;
     private String minSalary;
     private String maxSalary;
     private String location;
+
+    // Default constructor - Needed for JPA Entities to work
+
+    public Job(){
+
+    }
 
     public Job(long id, String title, String description, String minSalary,
                String maxSalary, String location) {
