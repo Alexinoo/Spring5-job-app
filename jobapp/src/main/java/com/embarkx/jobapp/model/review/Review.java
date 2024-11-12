@@ -11,7 +11,6 @@ public class Review {
     private Long id;
     private String title;
     private String description;
-
     private double rating;
 
     @JsonIgnore
@@ -55,5 +54,9 @@ public class Review {
 
     public Company getCompany() {
         return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 }
