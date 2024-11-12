@@ -1,6 +1,7 @@
 package com.embarkx.jobapp.model.company;
 
 import com.embarkx.jobapp.model.job.Job;
+import com.embarkx.jobapp.model.review.Review;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -19,7 +20,9 @@ public class Company {
     @OneToMany(mappedBy = "company")
     private List<Job> jobs;
 
-    //private List<Reviews> reviews;
+
+    @OneToMany(mappedBy = "company")
+    private List<Review> reviews;
 
 
 
@@ -56,5 +59,13 @@ public class Company {
 
     public void setJobs(List<Job> jobs) {
         this.jobs = jobs;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 }
