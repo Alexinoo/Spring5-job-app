@@ -23,6 +23,14 @@ public class CompanyController {
         return ResponseEntity.ok(companyService.getAllCompanies());
     }
 
+    @GetMapping("/{companyId}")
+    public ResponseEntity<Company> getCompanyById(@PathVariable Long companyId){
+        Company company = companyService.getCompany(companyId);
+        if (company != null)
+            return new ResponseEntity<>(company , HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
     @PostMapping
     public ResponseEntity<String> addCompany(@RequestBody Company newCompany){
         companyService.createCompany(newCompany);
