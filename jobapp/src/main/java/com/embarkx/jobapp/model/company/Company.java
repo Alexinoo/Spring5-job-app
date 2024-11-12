@@ -1,6 +1,7 @@
 package com.embarkx.jobapp.model.company;
 
 import com.embarkx.jobapp.model.job.Job;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -13,7 +14,9 @@ public class Company {
     private Long id;
     private String name;
     private String description;
-    @OneToMany
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "company")
     private List<Job> jobs;
 
     //private List<Reviews> reviews;
