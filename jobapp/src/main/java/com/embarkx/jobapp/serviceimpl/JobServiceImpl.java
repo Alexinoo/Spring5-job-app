@@ -13,8 +13,8 @@ import java.util.Optional;
 public class JobServiceImpl implements JobService {
 
     //private List<Job> jobs  = new ArrayList<>();
+    // private Long id = 1L;
     private JobRepository jobRepository;
-    private Long id = 1L;
 
     public JobServiceImpl(JobRepository jobRepository) {
         this.jobRepository = jobRepository;
@@ -28,7 +28,7 @@ public class JobServiceImpl implements JobService {
 
     @Override
     public void createJob(Job newJob) {
-        newJob.setId(id++);
+       // newJob.setId(id++);
         //  jobs.add(newJob); ** managed by ArrayList **
         jobRepository.save(newJob);
     }
