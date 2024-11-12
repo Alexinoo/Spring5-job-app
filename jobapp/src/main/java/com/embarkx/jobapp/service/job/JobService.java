@@ -1,6 +1,6 @@
-package com.embarkx.jobapp.service;
+package com.embarkx.jobapp.service.job;
 
-import com.embarkx.jobapp.model.Job;
+import com.embarkx.jobapp.model.job.Job;
 
 import java.util.List;
 

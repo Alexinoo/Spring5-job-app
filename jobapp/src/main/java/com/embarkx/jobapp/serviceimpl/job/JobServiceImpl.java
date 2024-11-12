@@ -1,8 +1,8 @@
-package com.embarkx.jobapp.serviceimpl;
+package com.embarkx.jobapp.serviceimpl.job;
 
-import com.embarkx.jobapp.model.Job;
-import com.embarkx.jobapp.repository.JobRepository;
-import com.embarkx.jobapp.service.JobService;
+import com.embarkx.jobapp.model.job.Job;
+import com.embarkx.jobapp.repository.job.JobRepository;
+import com.embarkx.jobapp.service.job.JobService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
