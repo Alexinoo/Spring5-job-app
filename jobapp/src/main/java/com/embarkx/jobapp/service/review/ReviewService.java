@@ -11,4 +11,6 @@ public interface ReviewService {
     Review getReview(Long companyId , Long reviewId);
 
     boolean updateReviewById(Review updatedReview, Long companyId, Long reviewId);
+
+    boolean deleteReviewById(Long companyId, Long reviewId);
 }
